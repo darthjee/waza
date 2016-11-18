@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @technic.category %>
+</p>
+
+<p>
+  <strong>Fase:</strong>
+  <%= @technic.fase %>
+</p>
+
+<%= link_to 'Edit', edit_technic_path(@technic) %> |
+<%= link_to 'Back', technics_path %>

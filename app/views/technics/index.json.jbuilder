@@ -1,0 +1,1 @@
+json.array! @technics, partial: 'technics/technic', as: :technic
