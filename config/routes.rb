@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :words
   resources :technics
   resources :fases
   resources :categories
