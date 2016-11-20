@@ -1,11 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  category_id: 
-  fase_id: 
-  meaning: MyString
+  category_id: 1
+  fase_id: 1
+  meaning: Free Fall
 
 two:
-  category_id: 
-  fase_id: 
-  meaning: MyString
+  category_id: 1 
+  fase_id:  2
+  meaning: Shoulder wheel

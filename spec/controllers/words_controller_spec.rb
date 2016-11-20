@@ -1,49 +1,47 @@
 require 'spec_helper'
 
-class WordsControllerTest < ActionController::TestCase
-  setup do
-    @word = words(:one)
-  end
+RSpec.describe WordsController do
+  let(:word) { words(:one) }
 
-  test "should get index" do
+  it "should get index" do
     get :index
-    assert_response :success
-    assert_not_nil assigns(:words)
+    expect(response).to be_a_success
+    expect(assigns(:words)).not_to be_nil
   end
 
-  test "should get new" do
+  it "should get new" do
     get :new
-    assert_response :success
+    expect(response).to be_a_success
   end
 
-  test "should create word" do
-    assert_difference('Word.count') do
-      post :create, word: { translation: @word.translation, word: @word.word }
-    end
+  it "should create word" do
+    expect do
+      post :create, word: { translation: word.translation, word: word.word }
+    end.to change { Word.count }
 
-    assert_redirected_to word_path(assigns(:word))
+    expect(response).to redirect_to(word_path(assigns(:word)))
   end
 
-  test "should show word" do
-    get :show, id: @word
-    assert_response :success
+  it "should show word" do
+    get :show, id: word
+    expect(response).to be_a_success
   end
 
-  test "should get edit" do
-    get :edit, id: @word
-    assert_response :success
+  it "should get edit" do
+    get :edit, id: word
+    expect(response).to be_a_success
   end
 
-  test "should update word" do
-    patch :update, id: @word, word: { translation: @word.translation, word: @word.word }
-    assert_redirected_to word_path(assigns(:word))
+  it "should update word" do
+    patch :update, id: word, word: { translation: word.translation, word: word.word }
+    expect(response).to redirect_to(word_path(assigns(:word)))
   end
 
-  test "should destroy word" do
-    assert_difference('Word.count', -1) do
-      delete :destroy, id: @word
-    end
+  it "should destroy word" do
+    expect do
+      delete :destroy, id: word
+    end.to change { Word.count }.by(-1)
 
-    assert_redirected_to words_path
+    expect(response).to redirect_to(words_path)
   end
 end

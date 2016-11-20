@@ -1,49 +1,47 @@
 require 'spec_helper'
 
-class FasesControllerTest < ActionController::TestCase
-  setup do
-    @fase = fases(:one)
-  end
+RSpec.describe FasesController do
+  let(:fase) { fases(:one) }
 
-  test "should get index" do
+  it "should get index" do
     get :index
-    assert_response :success
-    assert_not_nil assigns(:fases)
+    expect(response).to be_a_success
+    expect(assigns(:fases)).not_to be_nil
   end
 
-  test "should get new" do
+  it "should get new" do
     get :new
-    assert_response :success
+    expect(response).to be_a_success
   end
 
-  test "should create fase" do
-    assert_difference('Fase.count') do
-      post :create, fase: { name: @fase.name }
-    end
+  it "should create fase" do
+    expect do
+      post :create, fase: { name: fase.name }
+    end.to change { Fase.count }
 
-    assert_redirected_to fase_path(assigns(:fase))
+    expect(response).to redirect_to(fase_path(assigns(:fase)))
   end
 
-  test "should show fase" do
-    get :show, id: @fase
-    assert_response :success
+  it "should show fase" do
+    get :show, id: fase
+    expect(response).to be_a_success
   end
 
-  test "should get edit" do
-    get :edit, id: @fase
-    assert_response :success
+  it "should get edit" do
+    get :edit, id: fase
+    expect(response).to be_a_success
   end
 
-  test "should update fase" do
-    patch :update, id: @fase, fase: { name: @fase.name }
-    assert_redirected_to fase_path(assigns(:fase))
+  it "should update fase" do
+    patch :update, id: fase, fase: { name: fase.name }
+    expect(response).to redirect_to(fase_path(assigns(:fase)))
   end
 
-  test "should destroy fase" do
-    assert_difference('Fase.count', -1) do
-      delete :destroy, id: @fase
-    end
+  it "should destroy fase" do
+    expect do
+      delete :destroy, id: fase
+    end.to change { Fase.count }.by(-1)
 
-    assert_redirected_to fases_path
+    expect(response).to redirect_to(fases_path)
   end
 end

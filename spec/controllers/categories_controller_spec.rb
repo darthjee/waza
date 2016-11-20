@@ -1,49 +1,47 @@
 require 'spec_helper'
 
-class CategoriesControllerTest < ActionController::TestCase
-  setup do
-    @category = categories(:one)
-  end
+RSpec.describe CategoriesController do
+  let(:category) { categories(:one) }
 
-  test "should get index" do
+  it "should get index" do
     get :index
-    assert_response :success
-    assert_not_nil assigns(:categories)
+    expect(response).to be_a_success
+    expect(assigns(:categories)).not_to be_nil
   end
 
-  test "should get new" do
+  it "should get new" do
     get :new
-    assert_response :success
+    expect(response).to be_a_success
   end
 
-  test "should create category" do
-    assert_difference('Category.count') do
-      post :create, category: { name: @category.name, meaning: @category.meaning }
-    end
+  it "should create category" do
+    expect do
+      post :create, category: { name: category.name, meaning: category.meaning }
+    end.to change { Category.count }
 
-    assert_redirected_to category_path(assigns(:category))
+    expect(response).to redirect_to(category_path(assigns(:category)))
   end
 
-  test "should show category" do
-    get :show, id: @category
-    assert_response :success
+  it "should show category" do
+    get :show, id: category
+    expect(response).to be_a_success
   end
 
-  test "should get edit" do
-    get :edit, id: @category
-    assert_response :success
+  it "should get edit" do
+    get :edit, id: category
+    expect(response).to be_a_success
   end
 
-  test "should update category" do
-    patch :update, id: @category, category: { name: @category.name, meaning: @category.meaning }
-    assert_redirected_to category_path(assigns(:category))
+  it "should update category" do
+    patch :update, id: category, category: { name: category.name, meaning: category.meaning }
+    expect(response).to redirect_to(category_path(assigns(:category)))
   end
 
-  test "should destroy category" do
-    assert_difference('Category.count', -1) do
-      delete :destroy, id: @category
-    end
+  it "should destroy category" do
+    expect do
+      delete :destroy, id: category
+    end.to change { Category.count }.by(-1)
 
-    assert_redirected_to categories_path
+    expect(response).to redirect_to(categories_path)
   end
 end

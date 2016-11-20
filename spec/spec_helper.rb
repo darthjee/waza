@@ -10,12 +10,13 @@ RSpec.configure do |config|
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
   config.use_transactional_fixtures = true
+  config.global_fixtures = :all
+
   config.infer_spec_type_from_file_location!
   config.filter_rails_from_backtrace!
   config.filter_run :focus
   config.run_all_when_everything_filtered = true
 
-  config.example_status_persistence_file_path = "spec/examples.txt"
   config.disable_monkey_patching!
   config.profile_examples = 10
   config.order = :random
