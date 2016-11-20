@@ -2,6 +2,8 @@
 
 one:
   name: MyString
+  meaning: MyString
 
 two:
   name: MyString
+  meaning: MyString
