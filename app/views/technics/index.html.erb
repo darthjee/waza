@@ -7,6 +7,7 @@
     <tr>
       <th>Category</th>
       <th>Fase</th>
+      <th>Meaning</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,6 +17,7 @@
       <tr>
         <td><%= technic.category %></td>
         <td><%= technic.fase %></td>
+        <td><%= technic.meaning %></td>
         <td><%= link_to 'Show', technic %></td>
         <td><%= link_to 'Edit', edit_technic_path(technic) %></td>
         <td><%= link_to 'Destroy', technic, method: :delete, data: { confirm: 'Are you sure?' } %></td>

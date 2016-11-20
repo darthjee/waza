@@ -18,7 +18,7 @@ class TechnicsControllerTest < ActionController::TestCase
 
   test "should create technic" do
     assert_difference('Technic.count') do
-      post :create, technic: { category_id: @technic.category_id, fase_id: @technic.fase_id }
+      post :create, technic: { category_id: @technic.category_id, fase_id: @technic.fase_id, meaning: @technic.meaning }
     end
 
     assert_redirected_to technic_path(assigns(:technic))
@@ -35,7 +35,7 @@ class TechnicsControllerTest < ActionController::TestCase
   end
 
   test "should update technic" do
-    patch :update, id: @technic, technic: { category_id: @technic.category_id, fase_id: @technic.fase_id }
+    patch :update, id: @technic, technic: { category_id: @technic.category_id, fase_id: @technic.fase_id, meaning: @technic.meaning }
     assert_redirected_to technic_path(assigns(:technic))
   end
 

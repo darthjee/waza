@@ -3,7 +3,9 @@
 one:
   category_id: 
   fase_id: 
+  meaning: MyString
 
 two:
   category_id: 
   fase_id: 
+  meaning: MyString
