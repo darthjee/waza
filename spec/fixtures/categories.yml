@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id: 1
+  name: One-Waza
+  meaning: The first category
+
+two:
+  id: 2
+  name: Two-Waza
+  meaning: The second category
